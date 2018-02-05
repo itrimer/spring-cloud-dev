@@ -28,7 +28,6 @@ public class DcController {
         return services;
     }
 
-    @ResponseBody
     @GetMapping("/hi")
     public String hi(@RequestParam String name) {
         return "hi " + name + ",i am from port:" + port;

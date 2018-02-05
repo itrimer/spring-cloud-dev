@@ -21,6 +21,7 @@
         <module>client-eureka</module>
         <module>client-consul</module>
         <module>consumer-ribbon</module>
+        <module>consumer-feign</module>
     </modules>
 
     <build>
