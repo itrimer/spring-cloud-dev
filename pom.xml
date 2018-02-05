@@ -17,9 +17,9 @@
     </properties>
 
     <modules>
-        <module>eureka-server</module>
-        <module>eureka-client</module>
-        <module>consul-client</module>
+        <module>server-eureka</module>
+        <module>client-eureka</module>
+        <module>client-consul</module>
         <module>consumer-ribbon</module>
     </modules>
 
