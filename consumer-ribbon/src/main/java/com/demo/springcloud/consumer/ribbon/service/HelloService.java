@@ -21,16 +21,16 @@ public class HelloService {
 
     @HystrixCommand(fallbackMethod = "hiError")
     public String hiService(String name) {
+        return restTemplate.getForObject("http://CLIENT-EUREKA/hi?name=" + name, String.class);
+    }
+
+    public String sayHiService(String name) {
         System.out.println("hiService--" + (new Date()));
         ServiceInstance serviceInstance = loadBalancerClient.choose("client-eureka");
         String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/hi?name=" + name;
         System.out.println(url);
 
         return restTemplate.getForObject(url, String.class);
-    }
-
-    public String sayHiService(String name) {
-        return restTemplate.getForObject("http://CLIENT-EUREKA/hi?name=" + name, String.class);
     }
 
     public String hiError(String name) {
