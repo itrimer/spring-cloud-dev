@@ -1,5 +1,6 @@
 package com.demo.springcloud.consumer.ribbon.service;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
@@ -18,6 +19,7 @@ public class HelloService {
     @Autowired
     RestTemplate restTemplate;
 
+    @HystrixCommand(fallbackMethod = "hiError")
     public String hiService(String name) {
         System.out.println("hiService--" + (new Date()));
         ServiceInstance serviceInstance = loadBalancerClient.choose("client-eureka");
@@ -29,5 +31,9 @@ public class HelloService {
 
     public String sayHiService(String name) {
         return restTemplate.getForObject("http://CLIENT-EUREKA/hi?name=" + name, String.class);
+    }
+
+    public String hiError(String name) {
+        return "hi," + name + ",sorry,error!";
     }
 }

@@ -9,3 +9,7 @@ eureka:
 spring:
   application:
     name: service-ribbon
+
+feign:
+  hystrix:
+    enabled: true
