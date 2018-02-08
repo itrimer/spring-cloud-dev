@@ -15,7 +15,7 @@ public class HelloController {
     @Autowired
     HelloService helloService;
 
-    @GetMapping("/hello")
+    @GetMapping("/hi")
     public String hi(@RequestParam String name) {
         System.out.println("----------hello----" + name);
         return helloService.sayHiFromClientOne(name);

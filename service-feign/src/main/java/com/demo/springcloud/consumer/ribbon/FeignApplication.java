@@ -1,5 +1,6 @@
 package com.demo.springcloud.consumer.ribbon;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -22,8 +23,10 @@ import org.springframework.web.client.RestTemplate;
 public class FeignApplication {
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(FeignApplication.class)
-                .web(true).run(args);
+//        new SpringApplicationBuilder(FeignApplication.class)
+//                .web(true).run(args);
+
+        SpringApplication.run(FeignApplication.class, args);
     }
 
     @Bean

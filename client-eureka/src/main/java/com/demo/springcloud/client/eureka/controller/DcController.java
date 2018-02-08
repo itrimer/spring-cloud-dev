@@ -1,10 +1,9 @@
 package com.demo.springcloud.client.eureka.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,12 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class DcController {
+    private final Logger logger = Logger.getLogger(getClass());
 
     @Autowired
     DiscoveryClient discoveryClient;
-
-    @Value("${server.port}")
-    String port;
 
     @ResponseBody
     @GetMapping("/dc")
@@ -26,10 +23,5 @@ public class DcController {
         String services = "Services: " + discoveryClient.getServices();
         System.out.println(services);
         return services;
-    }
-
-    @GetMapping("/hi")
-    public String hi(@RequestParam String name) {
-        return "hi " + name + ", i am from port:" + port;
     }
 }
