@@ -18,9 +18,10 @@
     </properties>
 
     <modules>
-        <module>server-eureka</module>
-        <module>client-eureka</module>
+        <module>eureka-server</module>
+        <module>eureka-client</module>
         <module>client-consul</module>
+        <module>eureka-consumer</module>
         <module>service-ribbon</module>
         <module>service-feign</module>
         <module>service-zuul</module>
