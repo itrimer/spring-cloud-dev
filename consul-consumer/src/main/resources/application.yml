@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        healthCheckPath: ${management.contextPath}/health
+        healthCheckInterval: 15s
+        instance-id: client-consul
+  application:
+    name: consul-consumer
+server:
+  port: 9013
+logging:
+  file:
+    ${spring.application.name}.log

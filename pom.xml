@@ -21,8 +21,9 @@
         <module>eureka-server</module>
         <module>eureka-client</module>
         <module>client-consul</module>
+        <module>consul-consumer</module>
         <module>eureka-consumer</module>
-        <module>service-ribbon</module>
+        <module>eureka-consumer-ribbon</module>
         <module>service-feign</module>
         <module>service-zuul</module>
         <module>config-server</module>
