@@ -1,4 +1,4 @@
-package com.demo.springcloud.configserver;
+package com.demo.springcloud.config.client;
 
 /**
  * Created by zhigang.huang on 2018/2/7.
