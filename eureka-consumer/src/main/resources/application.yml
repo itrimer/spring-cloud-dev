@@ -1,8 +1,8 @@
+server:
+  port: 1201
 spring:
   application:
     name: eureka-consumer
-server:
-  port: 1201
 
 eureka:
   client:

@@ -1,3 +1,5 @@
+server:
+  port: 9003
 spring:
   cloud:
     consul:
@@ -9,5 +11,4 @@ spring:
         instance-id: client-consul
   application:
     name: client-consul
-server:
-  port: 9003
+

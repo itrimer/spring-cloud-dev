@@ -1,5 +1,7 @@
 package com.demo.springcloud.client.consul.controller;
 
+import com.demo.springcloud.client.consul.Lock;
+import com.ecwid.consul.v1.ConsulClient;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,9 +22,17 @@ public class HiController {
 
     @RequestMapping("/hi")
     public String hi(@RequestParam String name) {
-        logger.info("/hi, " + name + ".port:" + port + ", service_id:" + applicationName);
+        Lock lock = new Lock(new ConsulClient(), name, "hi");
+        try {
+            if (!lock.lock(false)) {
+                return "系统繁忙，请稍等！";
+            }
+            logger.info("/hi, " + name + ".port:" + port + ", service_id:" + applicationName);
 
-        return "hi " + name + ", i am from port:" + port;
+            return "hi " + name + ", i am from port:" + port;
+        } finally {
+            lock.unlock();
+        }
     }
 
 }
