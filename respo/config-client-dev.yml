@@ -1,2 +1,5 @@
 info:
     profile: dev
+service:
+  url: http://www.baidu.com
+  url2: http://www.sougo.com
