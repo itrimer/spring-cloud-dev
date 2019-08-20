@@ -1,0 +1,25 @@
+server:
+  port: ${r.server.port}
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+  instance:
+    hostname: localhost
+
+spring:
+  application:
+      name: eureka-server
+  profiles:
+    active: dev
+  #\u914D\u7F6E\u4E2D\u5FC3
+  cloud:
+    config:
+      fail-fast: true
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      discovery:
+        enabled: true
+        service-id: my-config-server
+      label: master
+#      uri: http://localhost:2102/

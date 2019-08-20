@@ -13,9 +13,11 @@ public class HelloController {
 
     @Value("${info.profile}")
     String profile;
+    @Value("${file.server.host}")
+    String fileServerHost;
 
     @RequestMapping(value = "/hello")
     public String hi() {
-        return "profile is " + profile;
+        return "profile is " + profile + ", And file.server.host is " + fileServerHost;
     }
 }
